@@ -1,6 +1,6 @@
 const API_KEY = "d2d9bccc7b48e821930131fca809ce88";
 
-//function that renders data on Display
+//function that renders API data on Display
 function renderWeatherInfo(data){
 
     newPara = document.createElement("p");
@@ -31,3 +31,20 @@ async function fetchWeatherDetails(){
 
 fetchWeatherDetails();
 
+//fetch user Coordinates for default data
+function getLocation(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    else{
+        console.log("No geoLocation Support");
+    }
+}
+
+function showPosition(position){
+    let lat = position.coords.latitude;
+    let longi = position.coords.longitude;
+
+    console.log(lat);
+    console.log(longi);
+}
